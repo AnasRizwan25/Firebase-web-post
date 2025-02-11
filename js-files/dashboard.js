@@ -5,7 +5,7 @@ document.getElementById('userName').innerText = 'username';
 let allPostDiv = document.querySelector("#postList");
 let islogin = localStorage.getItem('login');
 // let plays = localStorage.getItem('player');
-console.log(islogin);
+// console.log(islogin);
 
 if (!islogin) {
   window.location.replace('./index.html');
@@ -124,7 +124,7 @@ let getAllPosts = async () => {
   try {
     const posts = await getDocs(collection(db, "posts"));
     posts.forEach((post) => {
-      console.log(post.data());
+      // console.log(post.data());
       allPostDiv.innerHTML += `<div class="post">
         <div class="post-title">${post.data().displayName}</div>
         <div class="post-details">
