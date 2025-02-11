@@ -260,18 +260,19 @@ body {
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
+  /* bottom: 0; */
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  padding-top: 100px; /* To give some space at the top */
-  overflow: auto; /* Enable scrolling if needed */
+  height: 100vh; /* Full height */
+  background-color: rgba(0, 0, 0, 0.7);  /* To give some space at the top */
+  padding-top: 10px; /* To give some space at the top */
+  overflow-y: auto; /* Enable scrolling if needed */
 }
 
 /* Modal content */
 .modal-content {
   background-color: #fff;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   width: 50%; /* 50% width of the viewport */
   max-width: 600px; /* Max width to prevent it from becoming too large */
