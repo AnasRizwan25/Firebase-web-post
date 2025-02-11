@@ -95,8 +95,7 @@ const getMyPosts = async () => {
 const createPostHTML = (id, data) => {
   return `
     <div class="post" id="${id}">
-      <p>${data.postDate}</p>
-      <div class="post-title">${data.displayName}</div>
+      <div class="post-title">${data.displayName}   ${data.postDate}</div>
       <div class="post-details">
         <p>Topic: ${data.postTopic}</p>
         <p>Description: ${data.postText}</p>
@@ -160,6 +159,25 @@ window.deletePost = async (post_id) => {
   }
 };
 
+function getCurrentTime() {
+  const now = new Date();
+  
+  let hours = now.getHours();
+  const minutes = now.getMinutes();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  // Convert hour to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  
+  // Add leading zero for minutes if needed
+  const minutesStr = minutes < 10 ? '0' + minutes : minutes;
+
+  // Return the time in the desired format
+  return `${hours}:${minutesStr} ${ampm}`;
+}
+
+
 // Create a Post and Update Frontend
 let createPost = async (Text, Topic) => {
   try {
@@ -169,7 +187,7 @@ let createPost = async (Text, Topic) => {
 
     // Add the new post to Firebase
     const docRef = await addDoc(collection(db, "posts"), {
-      postDate: `${months[d.getMonth()]} ${d.getDate()} ${d.getFullYear()}`,
+      postDate: getCurrentTime(),
       displayName: name.toLowerCase(),
       postTopic: Topic,
       postText: Text,

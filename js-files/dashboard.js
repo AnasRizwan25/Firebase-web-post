@@ -126,9 +126,8 @@ let getAllPosts = async () => {
     posts.forEach((post) => {
       // console.log(post.data());
       allPostDiv.innerHTML += `<div class="post">
-        <div class="post-title">${post.data().displayName}</div>
+        <div class="post-title">${post.data().displayName} ${post.data().postDate}</div>
         <div class="post-details">
-          <p class="post-iniline">Date: ${post.data().postDate}</p>
           <p class="post-iniline">Topic: ${post.data().postTopic}</p>
           <p class="post-iniline">Description: ${post.data().postText}</p>
           <button id='${post.id}' class='like-btn'>Like</button>
