@@ -128,6 +128,7 @@ let getAllPosts = async () => {
       allPostDiv.innerHTML += `<div class="post">
         <div class="post-title">${post.data().displayName}</div>
         <div class="post-details">
+          <p class="post-iniline">Date: ${post.data().postDate}</p>
           <p class="post-iniline">Topic: ${post.data().postTopic}</p>
           <p class="post-iniline">Description: ${post.data().postText}</p>
           <button id='${post.id}' class='like-btn'>Like</button>
@@ -205,8 +206,9 @@ let getPlayer = async (text) => {
         const playerData = post.data();
         modalPlayerDetails.innerHTML += `
           <p class="same"><strong>Name:</strong> ${playerData.displayName}</p>
-          <p><strong>Player Topic Name:</strong> ${playerData.postTopic}</p>
-          <p><strong>Player Topic Text:</strong> ${playerData.postText}</p>
+          <p><strong>Date:</strong> ${playerData.postDate}</p>
+          <p><strong>Post Topic:</strong> ${playerData.postTopic}</p>
+          <p><strong>Post Text:</strong> ${playerData.postText}</p>
           <br/>
 
         `;
